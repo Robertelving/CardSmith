@@ -8,14 +8,17 @@ import java.util.ArrayList;
  */
 public class Elements {
 
+    //holds all possible elements
     private static ArrayList<String> elements = null;
 
+    //loads all possible elements from elements.txt
     public Elements() {
         Elements.elements = FileHandling.readFromfile("elements");
     }
 
+    
     /**
-     *
+     *prints out all possible elements.  For debugging purposes only
      * @return
      */
     @Override
@@ -31,16 +34,18 @@ public class Elements {
         return tmp;
     }
 
+    //checks if element exist in collection
     public static boolean elementExists(String element){
     
         return Elements.elements.contains(element);
     
     }
     
-    public static void main(String[] args) {
-        Elements e = new Elements();
-        System.out.println(e.toString());
-        System.out.println(e.elementExists("Water"));
-    }
+    //main test class
+//    public static void main(String[] args) {
+//        Elements e = new Elements();
+//        System.out.println(e.toString());
+//        System.out.println(e.elementExists("Water"));
+//    }
 
 }

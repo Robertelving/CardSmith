@@ -8,13 +8,5 @@ import java.util.ArrayList;
  */
 public class ComboHolder {
 
-    private ArrayList<Combo> comboes = null;
-
-    public ComboHolder() {
-        this.comboes = new ArrayList();
-    }
-    
-    public void loadAllComboes(){
-    
-    }
+//currently nothing implemented
 }

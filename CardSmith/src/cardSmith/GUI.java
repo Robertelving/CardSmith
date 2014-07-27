@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 
 /**
- *
+ * @desc Gui class
  * @author Robert
  */
 public class GUI extends javax.swing.JFrame {
@@ -287,6 +287,12 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /** 
+     * @desc moves nOE(number of elements) from Card c to DefaultListModel dl
+     * @param dl
+     * @param c
+     * @param nOE 
+     */
     private void moveElement(DefaultListModel dl, Card c, int nOE) {
         if (dl.isEmpty()) {
             dl.addElement(new Card(c.getName(), nOE));
@@ -295,15 +301,23 @@ public class GUI extends javax.swing.JFrame {
             ((Card) dl.firstElement()).addMore(nOE);
             this.cs.useCard(c, nOE);
         }
+       
     }
 
     private void toMixTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toMixTableButtonActionPerformed
 
+        // pulls selected Card object from jList
         Card tmpCard = (Card) this.elementList.getElementAt(this.jListElementTable.getSelectedIndex());
+        
+        // nOE represents how many cards wished to be moved
         int nOE = Integer.parseInt(this.nOETextField.getText());
+        
+        // checks if enough elements is owned to move them
         boolean isPos = tmpCard.getnOf() >= nOE;
 
+        //if possible 
         if (isPos) {
+            //switch over wich jList to move elemnts to
             switch (Integer.parseInt(this.mTCTextfield.getText())) {
 
                 case 1:
@@ -336,6 +350,7 @@ public class GUI extends javax.swing.JFrame {
 
             }
 
+            //update jListElementTable
             ArrayList<Card> tmp = cs.getCardHolderCards();
             this.elementList.clear();
             for (Card card : tmp) {
